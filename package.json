@@ -1,0 +1,42 @@
+{
+  "name": "internal-social-network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon --exec babel-node server.js",
+    "test-init": "node node_modules/jasmine/bin/jasmine init",
+    "test": "node node_modules/jasmine/bin/jasmine.js",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffngugi/internal-social-network.git"
+  },
+  "author": "jeff ngugi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeffngugi/internal-social-network/issues"
+  },
+  "homepage": "https://github.com/jeffngugi/internal-social-network#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
+    "@babel/runtime": "^7.7.2",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "jasmine": "^3.5.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.4",
+    "pg": "^7.12.1"
+  }
+}
