@@ -1,4 +1,4 @@
-var Add = require('../server');
+var Add = require('../test');
 
 describe('Add functionality', () => {
   it('calculates that x + y = z', () => {
