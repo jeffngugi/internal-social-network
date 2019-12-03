@@ -2,8 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const { Client } = require("pg");
 const app = express();
-const connectioString = "postgres://ngugi:password@localhost:5432/socialapp";
 const users = require('./routes/users');
+const dotenv = require('dotenv');
+dotenv.config();
+const connectioString = process.env.DATABASE_URL;
 
 const client = new Client({
   connectionString: connectioString
@@ -37,8 +39,7 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1/users', users);
 
 app.use('*', (req, res) => res.status(200).send({
