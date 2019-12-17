@@ -1,28 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const { Client } = require("pg");
+const { Client } = require('./config/index');
 const app = express();
 const users = require('./routes/users');
-const dotenv = require('dotenv');
+const auth = require('./routes/auth');
+import dotenv from 'dotenv';
 dotenv.config();
-const connectioString = process.env.DATABASE_URL;
-
-const client = new Client({
-  connectionString: connectioString
-});
-//initiate database connections
-client
-  .connect()
-  .then(() => {
-    console.log("Connected to Database");
-  })
-  .catch(error => {
-    console.log("Unable to connect to the database");
-    console.error(error);
-  });
-// app.use((req, res) => {
-//   res.json({ message: "Your request was succesful" });
-// });
+// Client.connect()
+//   .then(() => {
+//     console.log('Database connected');
+//   }).catch(err => {
+//     console.log('Unable to connect to the database');
+//     console.error(err);
+//   });
 
 //set headers to prevent CORS
 app.use((req, res, next) => {
@@ -41,6 +31,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1/users', users);
+app.use('/api/v1/auth', auth);
 
 app.use('*', (req, res) => res.status(200).send({
   message: 'Not found, try to add /api/v1 to access the api'
