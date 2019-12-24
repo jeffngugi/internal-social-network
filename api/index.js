@@ -3,7 +3,9 @@ const bodyParser = require("body-parser");
 const { Client } = require('./config/index');
 const app = express();
 const users = require('./routes/users');
-
+const auth = require('./routes/auth');
+import dotenv from 'dotenv';
+dotenv.config();
 // Client.connect()
 //   .then(() => {
 //     console.log('Database connected');
@@ -29,6 +31,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1/users', users);
+app.use('/api/v1/auth', auth);
 
 app.use('*', (req, res) => res.status(200).send({
   message: 'Not found, try to add /api/v1 to access the api'

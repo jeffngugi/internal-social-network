@@ -1,6 +1,7 @@
 const randomString = require('randomstring');
 const { Client } = require('../config/index');
 import Responder from '../helpers/responder';
+const bcrypt = require('bcryptjs');
 const responder = new Responder();
 Client.connect();
 
@@ -15,6 +16,9 @@ exports.test = (req, res) => {
 exports.create = async (req, res) => {
     var userDetails = req.body;
     const password = 'password';
+    const salt = await bcrypt.genSalt(10);
+    const newpassword = await bcrypt.hash(password, salt);
+    // return res.json({ newpassword })
     const is_admin = false;
     var pair = { is_admin, password };
     var userDetails = { ...userDetails, ...pair };
@@ -29,7 +33,7 @@ exports.create = async (req, res) => {
         } = userDetails
 
         Client.query('INSERT INTO users(first_name, last_name, email, gender, job_role, department, address, is_admin, password)VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9)',
-            [first_name, last_name, email, gender, job_role, department, address, is_admin, password])
+            [first_name, last_name, email, gender, job_role, department, address, is_admin, newpassword])
             .then(responder.responseSuccess(res, 'User successfully created'))
 
     }

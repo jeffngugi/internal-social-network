@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 const router = express.Router();
-const UserCtrl = require('../controllers/userController');
+import UserCtrl from '../controllers/userController';
 
 router.get('/test', UserCtrl.test)
 router.post('/create', UserCtrl.create);
