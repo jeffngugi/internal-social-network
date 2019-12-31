@@ -5,6 +5,9 @@ const app = express();
 const users = require('./routes/users');
 const auth = require('./routes/auth');
 import dotenv from 'dotenv';
+const passport = require('passport');
+app.use(passport.initialize())
+require('./config/passport')(passport);
 dotenv.config();
 // Client.connect()
 //   .then(() => {
@@ -27,6 +30,7 @@ app.use((req, res, next) => {
   );
   next();
 });
+app.use(passport.initialize())
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

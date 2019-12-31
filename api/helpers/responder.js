@@ -8,7 +8,7 @@ export default class Responder {
 
     responseSuccess(res, message = 'Success', data) {
         return res.status(200).json({
-            status: 'Success',
+            status: 'True',
             message,
             data
         })
