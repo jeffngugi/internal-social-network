@@ -3,8 +3,6 @@ import { Client } from 'pg';
 dotenv.config();
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-// const mongoose = require('mongoose');
-// const User = mongoose.model('users');
 const client = new Client({ connectionString: process.env.DATABASE_URL });
 client.connect();
 

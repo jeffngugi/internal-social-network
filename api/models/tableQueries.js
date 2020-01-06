@@ -20,6 +20,14 @@ CREATE TABLE
                 author_id INTEGER NOT NULL,
                 author_name TEXT NOT NULL,
                 article varchar NOT NULL);
+ CREATE TABLE
+                gifs(
+                    gif_id SERIAL PRIMARY KEY,
+                    created_on text NOT NULL,
+                    gif_url varchar NOT NULL,
+                    author_id INTEGER NOT NULL,
+                    public_id  varchar
+                    );
                 
 CREATE TABLE
           comments(
