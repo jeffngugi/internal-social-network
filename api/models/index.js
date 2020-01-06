@@ -20,7 +20,7 @@ export const createTables = () => {
 
 //Delete created tables
 export const tearDown = () => {
-    const deleteQuery = 'DROP TABLE IF EXISTS users, articles, comments, flags CASCADE';
+    const deleteQuery = 'DROP TABLE IF EXISTS users, articles, comments, flags,gifs CASCADE';
     Client.query(deleteQuery)
         .then(() => {
             Client.end();

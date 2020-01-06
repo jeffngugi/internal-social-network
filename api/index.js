@@ -3,9 +3,15 @@ const bodyParser = require("body-parser");
 const { Client } = require('./config/index');
 const app = express();
 const users = require('./routes/users');
-const auth = require('./routes/auth');
-import dotenv from 'dotenv';
 const passport = require('passport');
+const auth = require('./routes/auth');
+const gif = require('./routes/gif');
+const fileupload = require('express-fileupload');
+app.use(fileupload({
+  useTempFiles: true
+}));
+import dotenv from 'dotenv';
+
 app.use(passport.initialize())
 require('./config/passport')(passport);
 dotenv.config();
@@ -36,6 +42,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1/users', users);
 app.use('/api/v1/auth', auth);
+app.use('/api/v1/gif', gif);
 
 app.use('*', (req, res) => res.status(200).send({
   message: 'Not found, try to add /api/v1 to access the api'
