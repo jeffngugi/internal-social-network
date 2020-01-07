@@ -25,6 +25,7 @@ CREATE TABLE
                     gif_id SERIAL PRIMARY KEY,
                     created_on text NOT NULL,
                     gif_url varchar NOT NULL,
+                    title varchar NOT NULL,
                     author_id INTEGER NOT NULL,
                     public_id  varchar
                     );
