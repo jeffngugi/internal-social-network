@@ -19,13 +19,14 @@ cloudinary.config({
 class gifController {
     static async postGif(req, res) {
         const { id } = req.user.rows[0];
-
+        const { title } = req.body;
+        // return res.json(title);
         const uniqueFilename = new Date().toISOString();
         if (!req.files) { responder.responseNotFound(res, 'No selected image') }
         const file = req.files.image;
         await cloudinary.uploader.upload(file.tempFilePath)
             .then(image => {
-                client.query('INSERT INTO gifs(created_on, gif_url, author_id, public_id)VALUES($1,$2,$3,$4)', [uniqueFilename, image.url, id, image.public_id])
+                client.query('INSERT INTO gifs(created_on, gif_url, author_id, public_id, title)VALUES($1,$2,$3,$4, $5)', [uniqueFilename, image.url, id, image.public_id, title])
                     .then(responder.responseCreated(res, 'Gif succesfully uploaded'));
             })
             .catch(err => responder.responseServerError(res, err))
@@ -34,7 +35,7 @@ class gifController {
     static async getAll(req, res) {
         await client.query('SELECT * FROM gifs')
             .then(gifs => {
-                if (gifs.rows.length > 0) responder.responseSuccess(res, `${gifs.rows.length} users found`, gifs.rows)
+                if (gifs.rows.length > 0) responder.responseSuccess(res, `${gifs.rows.length} gifs found`, gifs.rows)
                 else responder.responseSuccess(res, 'No gifs was found', gifs.rows)
             })
     }
@@ -49,7 +50,6 @@ class gifController {
 
     static async deleteGif(req, res) {
         const { id } = req.user.rows[0];
-        // return res.json(id);
         try {
             const gif = await client.query('SELECT * FROM gifs WHERE gif_id=$1', [parseInt(req.params.id)]);
             if (gif.rows.length < 1) { responder.responseNotFound(res, 'No gif with that id') }
@@ -57,7 +57,7 @@ class gifController {
             if (author_id !== id) responder.responseUnauthorized(res);
             await cloudinary.uploader.destroy(public_id)
                 .then(result => {
-                    if (result.result === 'not found') return res.json('Not found in thejehj')
+                    if (result.result === 'not found') return res.json('Not found in database')
                     else {
                         client.query('DELETE FROM gifs WHERE gif_id=$1', [parseInt(req.params.id)])
                             .then(del => responder.responseDeleted(res))
@@ -66,10 +66,8 @@ class gifController {
 
                 })
                 .catch(err => console.log({ err }))
-
-            // return res.json({ author_id, id, public_id })
         } catch (error) {
-
+            responder.responseServerError(res, error)
         }
     }
 }
