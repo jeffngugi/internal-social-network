@@ -2,7 +2,6 @@ import { Client } from 'pg';
 const dotenv = require('dotenv');
 dotenv.config();
 import Responder from '../helpers/responder';
-import authController from './authController';
 const cloudinary = require('cloudinary').v2;
 const responder = new Responder();
 
