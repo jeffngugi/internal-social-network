@@ -66,6 +66,27 @@ class articleController {
             responder.responseServerError(res)
         }
     }
+
+    static async deleteArtlce(req, res) {
+
+        try {
+            const userId = req.user.rows[0].id;
+            const articleId = parseInt(req.params.id);
+            const article = await singleArticle(articleId);
+            if (article.rows.length < 1) responder.responseNotFound(res, 'Sorry, Article not found');
+            const { author_id } = article.rows[0];
+            if (userId !== author_id) responder.responseUnauthorized(res);
+            await client.query('DELETE from articles where article_id=$1', [articleId])
+                .then(del => {
+                    if (del) responder.responseDeleted(res);
+                })
+                .catch(err => responder.responseNotFound(res, 'Something went wrong'))
+            return res.json({ userId, articleId, author_id });
+        } catch (err) {
+            responder.responseServerError(res, err)
+        }
+
+    }
 }
 
 
