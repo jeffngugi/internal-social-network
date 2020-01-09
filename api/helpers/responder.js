@@ -14,16 +14,17 @@ export default class Responder {
         })
     }
 
-    responseUpdated(res, message = 'Succesfully updated') {
+    responseUpdated(res, message = 'Succesfully updated', data) {
         return res.status(201).json({
             status: 'Success',
-            message
+            message,
+            data
         })
     }
 
-    responseCreated(res, message, data = {}) {
+    responseCreated(res, message, data) {
         return res.status(201).json({
-            status: '201',
+            status: 'Success',
             message,
             data
         })

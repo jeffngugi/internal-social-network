@@ -61,9 +61,16 @@ class articleController {
             if (article.rows.length < 1) responder.responseNotFound(res, 'Sorry, Article not found');
             const data = article.rows[0];
             delete data.author_id;
+            const comments = await client.query('SELECT * FROM comments WHERE article_id=$1', [articleId]);
+            // const newcomments = comments.map(cmnt => {
+            //     comment_id = cmnt.comment_id,
+            //         author_id = cmnt.author_id,
+            //         comment = cmnt.comment
+            // })
+            data.comments = comments.rows;
             responder.responseSuccess(res, 'Article found', data);
         } catch (err) {
-            responder.responseServerError(res)
+            err => responder.responseServerError(res, err)
         }
     }
 
