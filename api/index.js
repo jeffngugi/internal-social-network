@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/api/v1/users', users);
 app.use('/api/v1/auth', auth);
-app.use('/api/v1/gif', gif);
+app.use('/api/v1/gifs', gif);
 app.use('/api/v1/articles', articles);
 
 app.use('*', (req, res) => res.status(200).send({
