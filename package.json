@@ -1,0 +1,62 @@
+{
+  "name": "internal-social-network",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon --exec babel-node server.js",
+    "test-init": "node node_modules/jasmine/bin/jasmine init",
+    "createTables": "babel-node ./api/models/index.js createTables",
+    "dropTables": "babel-node ./api/models/index.js tearDown",
+    "test": "node node_modules/jasmine/bin/jasmine.js",
+    "lint": "eslint",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffngugi/internal-social-network.git"
+  },
+  "author": "jeff ngugi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jeffngugi/internal-social-network/issues"
+  },
+  "homepage": "https://github.com/jeffngugi/internal-social-network#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.0",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/register": "^7.7.0",
+    "@babel/runtime": "^7.7.2",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "jasmine": "^3.5.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cloudinary": "^1.18.1",
+    "concurrently": "^5.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.1.6",
+    "express-validator": "^6.3.0",
+    "jasmine-node": "^3.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "make-runnable": "^1.3.6",
+    "moment": "^2.24.0",
+    "multer": "^1.4.2",
+    "nodemon": "^1.19.4",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "pg": "^7.14.0",
+    "randomstring": "^1.1.5",
+    "uuid": "^3.3.3"
+  }
+}
