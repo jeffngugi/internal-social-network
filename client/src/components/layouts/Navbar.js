@@ -11,10 +11,13 @@ const Navbar = ({ auth, logout }) => {
     const isAuth = auth.isAuthenticated;
     const authLinks = (
 
-        < ul className="navbar-nav align-left" >
-            <li className="nav-item ">
+        < ul className="navbar-nav" >
+            <li className='nav-item'>
+                <Link to='/users' className='nav-link'>users</Link>
+            </li>
+            <li className="nav-item right">
 
-                <a onClick={logout} href='#!' className='nav-link'>
+                <a onClick={logout} href='#!' className='nav-link '>
                     {auth.user.name}{' '}  {auth.user.lastName}{' '}
                     <i className='fas fa-sign-out-alt' />{' '}
                     Logout
