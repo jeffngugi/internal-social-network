@@ -33,12 +33,12 @@ class authController {
 
                             // responder.responseSuccess(res, { payload });
                         } else {
-                            responder.responseSuccess(res, 'Wrong password/email');
+                            responder.responseError(res, 'Wrong password/email');
                         }
 
 
                     } else {
-                        responder.responseSuccess(res, 'No user registered with that email')
+                        responder.responseError(res, 'No user registered with that email')
                     }
                 })
 

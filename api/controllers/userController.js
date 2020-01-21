@@ -26,7 +26,7 @@ exports.create = async (req, res) => {
 
     const user = await Client.query('SELECT * FROM users WHERE email=$1', [userEmail]);
     if (user.rows.length > 0) {
-        responder.responseSuccess(res, 'Email already taken')
+        responder.responseError(res, 'Email already taken')
     } else {
         const {
             first_name, last_name, email, gender, job_role, department, address, is_admin, password

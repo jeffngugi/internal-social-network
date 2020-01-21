@@ -30,6 +30,14 @@ export default class Responder {
         })
     }
 
+
+    responseError(res, message, data) {
+        return res.status(200).json({
+            status: 'Error',
+            message,
+            data
+        })
+    }
     responseDeleted(res) {
         return res.status(200).json({
             status: 'Success',
