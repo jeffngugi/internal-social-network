@@ -12,9 +12,22 @@ const Navbar = ({ auth, logout }) => {
     const authLinks = (
 
         < ul className="navbar-nav" >
+            <li className="nav-item ">
+                <Link className="nav-link" to="/articles">Feed</Link>
+            </li>
+            <li className="nav-item ">
+                <Link className="nav-link" to="/images">Images</Link>
+            </li>
             <li className='nav-item'>
                 <Link to='/users' className='nav-link'>users</Link>
             </li>
+            <li className="nav-item ">
+                <Link className="nav-link" to="/create-article">Create</Link>
+            </li>
+            <li className="nav-item ">
+                <Link className="nav-link" to="/post-img">Post Img</Link>
+            </li>
+
             <li className="nav-item right">
 
                 <a onClick={logout} href='#!' className='nav-link '>
@@ -28,6 +41,13 @@ const Navbar = ({ auth, logout }) => {
 
     const guestLinks = (
         <ul className="navbar-nav align-left">
+
+            <li className="nav-item ">
+                <Link className="nav-link" to="/articles">Feed</Link>
+            </li>
+            <li className="nav-item ">
+                <Link className="nav-link" to="/images">Images</Link>
+            </li>
             <li className="nav-item ">
                 <Link className="nav-link" to="/login">Login</Link>
             </li>

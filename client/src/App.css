@@ -66,3 +66,24 @@ Footer starts here
   color: whitesmoke;
   text-align: center;
 }
+
+/**
+Users component styling start here
+*/
+.users{
+  width: 80%;
+  margin: auto;
+  /* text-align: center; */
+}
+.users h3{
+  align-self: center
+}
+
+.user{
+  background-color: #c9ccd3;
+  padding: 2px;
+  margin: 3px;
+  border-radius: 2%;
+  text-align: center;
+  text-emphasis: none;
+}

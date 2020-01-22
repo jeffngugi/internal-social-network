@@ -8,7 +8,7 @@ export const getUsers = () => async dispatch => {
         axios.get('/users/all')
             .then(res => dispatch({
                 type: GET_USERS,
-                payload: res.data
+                payload: res.data.data
             }))
             .catch(err => console.log(err))
 

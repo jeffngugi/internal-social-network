@@ -8,7 +8,7 @@ import Routes from './components/Routes';
 import './App.css'
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser } from './actions/authAction';
+import { setCurrentUser, logout } from './actions/authAction';
 
 //check for token
 if (localStorage.jwtToken) {
@@ -17,6 +17,7 @@ if (localStorage.jwtToken) {
   store.dispatch(setCurrentUser(decoded));
   const currentTime = Date.now() / 1000;
   if (decoded.exp < currentTime) {
+    store.dispatch(logout())
     window.location.href = '/login'
   }
 }
