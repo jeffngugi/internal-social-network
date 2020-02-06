@@ -1,4 +1,4 @@
-import { GET_ALL_ARTICLES, ARTICLE_LOADING } from '../actions/types';
+import { GET_ALL_ARTICLES, ARTICLE_LOADING, CREATE_ARTICLE} from '../actions/types';
 
 const initialState = {
     articles: null,
@@ -8,6 +8,10 @@ const initialState = {
 
 export default function (state = initialState, action) {
     switch (action.type) {
+        case CREATE_ARTICLE:
+            return{
+                ...state
+            }
         case GET_ALL_ARTICLES:
             return {
                 ...state,

@@ -8,6 +8,7 @@ import Landing from './layouts/Landing';
 import Users from './users/Users';
 import PrivateRoute from '../commons/PrivateRoute';
 import Articles from './articles/Articles';
+import CreateArticle from './articles/CreateArticle';
 const Routes = () => {
     return (
         <>
@@ -20,7 +21,7 @@ const Routes = () => {
                 <Route exact path='/' component={Landing} />
                 <Route path='/not-found' exact component={NotFound} />
                 <Route path='/users' exact component={Users} />
-
+                <PrivateRoute path='/create-article' exact component={CreateArticle} />
                 <PrivateRoute exact path='/users' component={Users} />
             </Switch>
 

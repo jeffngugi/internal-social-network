@@ -96,3 +96,11 @@ export const clearErrors = () => {
         type: CLEAR_ERRORS
     };
 };
+
+export const getErrors = (errors)  =>{
+    return{
+        type:GET_ERRORS,
+        payload:errors
+
+    }
+}
