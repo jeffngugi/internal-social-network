@@ -2,7 +2,6 @@ import { Client } from 'pg';
 import dotenv from 'dotenv';
 dotenv.config();
 import Responder from '../helpers/responder';
-import { async } from '../../../../../Users/jeff/AppData/Local/Microsoft/TypeScript/3.6/node_modules/rxjs/internal/scheduler/async';
 const responder = new Responder();
 
 
