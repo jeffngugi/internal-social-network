@@ -22,7 +22,6 @@ export const createArticle = (formData) =>async dispatch=>{
             'Content-Type': 'application/json'
         }
     };
-    console.log(formData)
     await axios.post('/articles', formData, config)
         .then(res => console.log(res))
         .catch(err => console.log(err))
