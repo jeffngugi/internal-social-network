@@ -8,3 +8,4 @@ export const GET_USERS = 'GET_USERS';
 export const USER_LOADING = 'USER_LOADING';
 export const GET_ALL_ARTICLES = 'GET_ALL_ARTICLES';
 export const ARTICLE_LOADING = 'ARTICLE_LOADING';
+export const CREATE_ARTICLE ='CREATE_ARTICLE';

@@ -16,6 +16,16 @@ export const getArticles = () => async dispatch => {
         .catch(err => console.log(err))
 }
 
+export const createArticle = (formData) =>async dispatch=>{    
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    await axios.post('/articles', formData, config)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+}
 export const articleLoading = () => {
     return {
         type: ARTICLE_LOADING

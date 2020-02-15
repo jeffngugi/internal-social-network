@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { registerUser, clearErrors } from '../../actions/authAction';
+import { registerUser, clearErrors, getErrors } from '../../actions/authAction';
 import { Redirect } from 'react-router-dom';
+import ErrorAlert from '../../commons/ErrorAlert';
+import isEmpty from '../../validation/is-empty';
 
-const Register = ({ registerUser, auth, errors, clearErrors }) => {
+const Register = ({ registerUser, auth, errors, clearErrors, getErrors }) => {
     //states
     const [formData, setFormData] = useState({
         email: '',
@@ -14,6 +16,7 @@ const Register = ({ registerUser, auth, errors, clearErrors }) => {
         address: '',
         gender: ''
     });
+
     const { email, first_name, last_name, job_role, department, address, gender } = formData;
 
     useEffect(() => {
@@ -27,6 +30,10 @@ const Register = ({ registerUser, auth, errors, clearErrors }) => {
 
     const onSubmit = async (e) => {
         e.preventDefault();
+        clearErrors();
+        if(!checkProperties(formData)){
+            getErrors('All fields are required')
+        }else{
         registerUser(formData);
         if (!errors) {
             setFormData({
@@ -39,16 +46,28 @@ const Register = ({ registerUser, auth, errors, clearErrors }) => {
                 gender: ''
             });
         }
+        }
+        
+    }
+
+    //checks if every key in an object is empty or not
+    function checkProperties(obj) {
+        for (var key in obj) {
+            if (isEmpty(obj[key]))
+                return false;
+        }
+        return true;
     }
 
 
-    const errorAlert = (
+    // const errorAlert = (
 
-        Object.entries(errors).length === 0 ? null : <div className="alert alert-warning" role="alert">
-            {errors}
-        </div>
+    //     Object.entries(errors).length === 0 ? null : <div className="alert alert-warning" role="alert">
+    //         {errors}
+    //     </div>
 
-    )
+    // )
+
     const successAlert = (
         Object.entries(auth.user).length === 0 ? null : <div className="alert alert-success" role="alert">
             {auth.user}
@@ -65,7 +84,7 @@ const Register = ({ registerUser, auth, errors, clearErrors }) => {
 
             <div className='RegisterForm'>
                 {/* {errorAlert} */}
-                {successAlert ? successAlert : errorAlert}
+                {successAlert ? successAlert : ErrorAlert(errors)}
                 <h3>
                     Get registered now
                 </h3>
@@ -156,4 +175,4 @@ const mapStateToProps = (state) => ({
     errors: state.errors
 })
 
-export default connect(mapStateToProps, { registerUser, clearErrors })(Register);
+export default connect(mapStateToProps, { registerUser, clearErrors,getErrors })(Register);
