@@ -9,6 +9,8 @@ import Users from './users/Users';
 import PrivateRoute from '../commons/PrivateRoute';
 import Articles from './articles/Articles';
 import CreateArticle from './articles/CreateArticle';
+import Images from './images/Images';
+import PostImg from './images/PostImg';
 const Routes = () => {
     return (
         <>
@@ -18,6 +20,8 @@ const Routes = () => {
 
                 <PrivateRoute exact path='/dashboard' component={Dashboard} />
                 <Route exact path='/articles' component={Articles} />
+                <Route exact path='/images' component={Images} />
+                <PrivateRoute exact path='/post-img' component={PostImg} />
                 <Route exact path='/' component={Landing} />
                 <Route path='/not-found' exact component={NotFound} />
                 <Route path='/users' exact component={Users} />

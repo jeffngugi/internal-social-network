@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Article = ({ artikle }) => {
-    console.log(artikle);
+    // console.log(artikle);
     const { title, author_name, article } = artikle;
 
     return (
