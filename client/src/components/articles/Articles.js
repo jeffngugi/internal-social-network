@@ -11,6 +11,7 @@ const Articles = ({ articles, getArticles }) => {
     console.log(articles.loading);
     // console.log(articles.articles);
     const allArticles = articles.articles;
+    console.log(allArticles)
 
     return (
         <>
