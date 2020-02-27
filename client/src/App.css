@@ -91,3 +91,13 @@ Users component styling start here
   text-align: center;
   text-emphasis: none;
 }
+
+.imagePage{
+  background-color: #c9ccd3;
+  margin: auto;
+}
+
+.imagePage h3{
+  color: royalblue;
+  text-align: center;
+}
