@@ -4,7 +4,7 @@
 <p>This is a fullstack javascript application for Andela/Facebook Open Classroom #devCTraining final project </p>
 <hr />
 <h3>Technologies used  </h3>
-<ul style="list-style-type:square;">
+<ul style="list-style-type:circle;">
     <li><a href="https://cloudinary.com/" target="_blank"> Cloudinary </a> </li>
     <li><a href="https://www.postgresql.org/docs/10/index.html" target="_blank"> Postgres </a> </li>
     <li><a href="https://reactjs.org/" target="_blank"> React JS </a> </li>
@@ -31,3 +31,39 @@
 
 <hr />
 
+<h3> Features <h3>
+<ul style="list-style-type:circle;">
+    <li>Create, Delete and update a user</li>
+    <li>User Login and Logout</li>
+    <li>Display single and/or all users in the system</li>
+    <li>Create, Delete, and Update an article</li>
+    <li>Get single and all articles</li>
+    <li>Get all Gifs</li>
+    <li>Create, update and delete a gif</li>
+    <li>Comment to an article</li>
+</ul>
+
+<hr />
+<h3> Endpoints </h3>
+<p>These are the endpoint on the application </p>
+<h5>Create User <b>POST</b><code> /users/create</code></h5>
+<h5>Update User <b>PUT</b><code> /users/update</code></h5>
+<h5>Delete User <b>DELETE</b><code> /users/{userId}</code></h5>
+<h5>All users <b>GET</b><code> /users/all</code></h5>
+<h5>Login User <b>POST</b><code> /users/all</code></h5>
+<h5>Get logged in user <b>GET</b><code> /auth/current</code></h5>
+<h5>Post a gif <b>POST</b><code> /gifs</code></h5>
+<h5>Get all gifs from certain user <b>GET</b><code> /gifs/user/{userId}</code></h5>
+<h5>Get single gif <b>GET</b><code> /gifs/{userId}</code></h5>
+<h5>Delete a gif <b>DELETE</b><code> /gifs/{userId}</code></h5>
+<h5>Create an article <b>POST</b><code> /articles</code></h5>
+<h5>Get all articles<b>GET</b><code> /articles</code></h5>
+<h5>Update an article<b>PATCH</b><code> /articles/{articleId}</code></h5>
+<h5>Get single article<b>GET</b><code> /articles/{articleId}</code></h5>
+<h5>Delete an article<b>DELETE</b><code> /articles/{articleId}</code></h5>
+<h5>Comment on an article<b>POST</b><code> /articles/{articleId}/comment</code></h5>
+
+<hr />
+<h2>Authors </h2>
+<p style="color:lightgreen">jeff ngugi</p>
+ 
