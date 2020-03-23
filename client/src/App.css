@@ -1,6 +1,8 @@
-body{
+body {
   font-family: Roboto;
   font-size: medium;
+  margin: 0;
+  padding: 0;
 }
 .App {
   text-align: center;
@@ -41,22 +43,75 @@ body{
   }
 }
 
+/* Landing page starts here */
+.landing-page {
+  /* height: 73vh; */
+  overflow: hidden;
+}
+
+.landing-page .left {
+  position: relative;
+}
+
+.landing-page .left .landing-left {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+.landing-page .left .landing-left h2 {
+  color: #6c63ff;
+}
+
+.landing-page .left .landing-left p {
+  color: #666666;
+}
+
+.primaryBtn {
+  color: whitesmoke;
+  background-color: #6c63ff;
+  margin: 1.5rem;
+  padding: 0.1rem 1rem;
+  border-radius: 40px;
+  border: none;
+}
+
+.primaryBtn:hover,
+.primaryBtn:focus {
+  color: #6c63ff;
+  background-color: transparent;
+  margin: 1.5rem;
+  padding: 0.1rem 1rem;
+  border-radius: 40px;
+  border: solid #6c63ff 0.1rem;
+}
+.landing_image {
+  overflow: hidden;
+}
+
+.landing-page img {
+  max-width: 100%;
+  /* max-height: 100%; */
+  display: block;
+  object-fit: contain;
+}
+
 /** 
 Registration page styling
 */
-.RegisterForm{
+.RegisterForm {
   width: 55%;
   margin: auto;
   margin-top: 6px;
   text-align: center;
 }
 
-.RegisterForm .h3{
+.RegisterForm .h3 {
   margin: auto;
   text-align: center;
 }
 
-.RegisterForm .btn{
+.RegisterForm .btn {
   text-align: center;
   margin: auto;
 }
@@ -65,7 +120,7 @@ Registration page styling
 Footer starts here
 */
 
-.footer{
+.footer {
   background-color: #282c34;
   color: whitesmoke;
   text-align: center;
@@ -74,16 +129,16 @@ Footer starts here
 /**
 Users component styling start here
 */
-.users{
+.users {
   width: 80%;
   margin: auto;
   /* text-align: center; */
 }
-.users h3{
-  align-self: center
+.users h3 {
+  align-self: center;
 }
 
-.user{
+.user {
   background-color: #c9ccd3;
   padding: 2px;
   margin: 3px;
@@ -92,12 +147,68 @@ Users component styling start here
   text-emphasis: none;
 }
 
-.imagePage{
+.imagePage {
   background-color: #c9ccd3;
   margin: auto;
 }
 
-.imagePage h3{
+.imagePage h3 {
   color: royalblue;
   text-align: center;
+}
+
+.Articles {
+  margin: 0 4.5rem;
+}
+
+/* Scroll bar start here*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6c63ff;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6c63ff;
+}
+/* Scroll bar ends here*/
+
+/* login  starts here */
+.Login {
+  height: 70vh;
+  margin-top: 0;
+}
+
+.Login form {
+  margin: 4rem 1rem;
+  background-color: transparent;
+}
+
+.headers {
+  color: #6c63ff;
+}
+
+.paragraphs {
+  color: #666666;
+}
+
+/* Login page ends here */
+
+/* Dashboard starts here */
+.Dashboard {
+  margin-bottom: 0;
+  height: 80vh;
+  overflow: hidden;
 }
