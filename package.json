@@ -11,8 +11,10 @@
     "test": "node node_modules/jasmine/bin/jasmine.js",
     "lint": "eslint",
     "client-install": "npm install --prefix client",
+    "build-client":"npm build --prefix client",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "npm run server && npm run createTables && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
