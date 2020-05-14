@@ -14,7 +14,7 @@
     "build-client":"npm build --prefix client",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm run createTables && npm run server && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client npm run createTables"
   },
   "repository": {
     "type": "git",
