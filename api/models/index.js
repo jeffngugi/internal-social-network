@@ -12,7 +12,7 @@ Client.connect()
 export const createTables = () => {
     Client.query(tables)
         .then((res) => {
-            console.log(res);
+            Client.end();
         }).catch((err) => {
             console.log(err);
         });
