@@ -10,7 +10,7 @@ const fileupload = require('express-fileupload');
 app.use(fileupload({
   useTempFiles: true
 }));
-import dotenv from 'dotenv';
+const dotenv = require('dotenv');
 
 app.use(passport.initialize())
 require('./config/passport')(passport);
