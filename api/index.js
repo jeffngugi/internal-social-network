@@ -42,9 +42,11 @@ app.use("/api/v1/articles", articles);
 
 // Server static assets if in production
 if (process.env.NODE_ENV === "production") {
-  // // Set static folder
-  res.status(200).send({
-    message: "We are almost there",
+  // Set static folder
+  app.get("*", (req, res) => {
+    res.status(200).send({
+      message: "Almost there bro",
+    });
   });
   // app.use(express.static("../client/build"));
 
