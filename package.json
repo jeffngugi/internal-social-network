@@ -15,7 +15,7 @@
     "build-client": "npm build --prefix client",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "npm createTables && npm run && cd client && npm install && npm run build"
+    "heroku-postbuild": "npm createTables && npm run && cd client && npm run install && npm run build"
   },
   "engines": {
     "node": "12.15.0",
