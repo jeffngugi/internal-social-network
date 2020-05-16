@@ -18,7 +18,7 @@
     "clean": "rm -rf dist && mkdir dist",
     "build-server": "babel server --out-dir dist",
     "build": "npm run clean && npm run build-server",
-    "heroku-postbuild": "npm run build && npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client && npm run build"
   },
   "engines": {
     "node": "12.15.0",
