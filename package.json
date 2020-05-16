@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "start": "node build/server.js",
     "server": "nodemon --exec babel-node server.js",
     "test-init": "node node_modules/jasmine/bin/jasmine init",
     "createTables": "babel-node ./api/models/index.js createTables",
@@ -14,11 +15,8 @@
     "build-client": "npm build --prefix client",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "start": "babel-node dist/server.js",
-    "clean": "rm -rf dist && mkdir dist",
-    "build-server": "babel server --out-dir dist",
-    "build": "npm run clean && npm run build-server",
-    "heroku-postbuild": "npm run build"
+    "build-server": "rm -rf build && babel src -d build",
+    "heroku-postbuild": "npm run build-server"
   },
   "engines": {
     "node": "12.15.0",
