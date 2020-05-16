@@ -1,0 +1,10 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.tables = void 0;
+
+/* eslint-disable import/prefer-default-export */
+var tables = "\nCREATE TABLE\n            users(\n                id SERIAL PRIMARY KEY,\n                first_name TEXT NOT NULL,\n                last_name TEXT,\n                email TEXT NOT NULL UNIQUE,\n                password TEXT NOT NULL,\n                gender TEXT NOT NULL,\n                job_role TEXT NOT NULL,\n                department TEXT NOT NULL,\n                address TEXT NOT NULL,\n                is_admin BOOLEAN);\nCREATE TABLE\n            articles(\n                article_id SERIAL PRIMARY KEY,\n                created_on text NOT NULL,\n                title varchar NOT NULL,\n                author_id INTEGER NOT NULL,\n                author_name TEXT NOT NULL,\n                article varchar NOT NULL);\n CREATE TABLE\n                gifs(\n                    gif_id SERIAL PRIMARY KEY,\n                    created_on text NOT NULL,\n                    gif_url varchar NOT NULL,\n                    title varchar NOT NULL,\n                    author_id INTEGER NOT NULL,\n                    public_id  varchar\n                    );\n                \nCREATE TABLE\n          comments(\n              comment_id  SERIAL PRIMARY KEY,\n              article_id INTEGER NOT NULL, \n              author_id INTEGER NOT NULL,\n              comment varchar NOT NULL,        \n              FOREIGN KEY(author_id) REFERENCES users(id) ON DELETE CASCADE,\n              FOREIGN KEY(article_id) REFERENCES articles(article_id) ON DELETE CASCADE);\nCREATE TABLE\n            flags(\n                flag_id SERIAL PRIMARY KEY,\n                type TEXT NOT NULL,\n                flaged_id INTEGER NOT NULL,\n                content varchar NOT NULL,\n                reason varchar NOT NULL\n);";
+exports.tables = tables;

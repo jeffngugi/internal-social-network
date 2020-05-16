@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node build/server.js",
+    "start": "node dist/server.js",
     "server": "nodemon --exec babel-node ./api/server.js",
     "test-init": "node node_modules/jasmine/bin/jasmine init",
     "createTables": "babel-node ./api/models/index.js createTables",
