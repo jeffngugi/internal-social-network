@@ -19,7 +19,7 @@
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && npm run build-server",
     "heroku-postbuild": "npm run postinstall:server && npm run postinstall:client",
-    "postinstall:server": "cd api && yarn install --ignore-engines --production=false ",
+    "postinstall:server": "cd api && npm run install --ignore-engines --production=false ",
     "postinstall:client": "cd client && npm install --production=false && npm build"
   },
   "engines": {
