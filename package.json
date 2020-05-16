@@ -18,9 +18,7 @@
     "build-server": "babel api --out-dir dist",
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && npm run build-server",
-    "heroku-postbuild": "npm run postinstall:server && npm run postinstall:client",
-    "postinstall:server": "cd api && npm run install --ignore-engines --production=false ",
-    "postinstall:client": "cd client && npm install --production=false && npm build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run client-install  && npm run build-client"
   },
   "engines": {
     "node": "12.15.0",
