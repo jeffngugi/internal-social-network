@@ -15,7 +15,7 @@
     "build-client": "npm build --prefix client",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build-server": "rm -rf build && babel src -d build",
+    "build-server": "rm -rf build && babel -d build",
     "heroku-postbuild": "npm run build-server"
   },
   "engines": {
