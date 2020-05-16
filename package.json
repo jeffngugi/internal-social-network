@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node build/server.js",
-    "server": "nodemon --exec babel-node server.js",
+    "server": "nodemon --exec babel-node ./api/server.js",
     "test-init": "node node_modules/jasmine/bin/jasmine init",
     "createTables": "babel-node ./api/models/index.js createTables",
     "dropTables": "babel-node ./api/models/index.js tearDown",
@@ -15,8 +15,10 @@
     "build-client": "npm build --prefix client",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build-server": "rm -rf build && babel -d build",
-    "heroku-postbuild": "npm run build-server"
+    "build-server": "babel api --out-dir dist",
+    "clean": "rm -rf dist && mkdir dist",
+    "build": "npm run clean && npm run build-server",
+    "heroku-postbuild": "npm run build && npm install --prefix client && npm run build --prefix client"
   },
   "engines": {
     "node": "12.15.0",
