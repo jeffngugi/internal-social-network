@@ -35,6 +35,12 @@
   },
   "homepage": "https://github.com/jeffngugi/internal-social-network#readme",
   "devDependencies": {
+    "eslint": "^6.6.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "jasmine": "^3.5.0"
+  },
+  "dependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
     "@babel/node": "^7.7.0",
@@ -43,12 +49,6 @@
     "@babel/register": "^7.7.0",
     "@babel/runtime": "^7.7.2",
     "babel-loader": "^8.0.6",
-    "eslint": "^6.6.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.18.2",
-    "jasmine": "^3.5.0"
-  },
-  "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "classnames": "^2.2.6",
