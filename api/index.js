@@ -7,6 +7,7 @@ const auth = require("./routes/auth");
 const gif = require("./routes/gif");
 const articles = require("./routes/article");
 const fileupload = require("express-fileupload");
+const { expressCspHeader, INLINE, NONE, SELF } = require("express-csp-header");
 app.use(
   fileupload({
     useTempFiles: true,
@@ -31,6 +32,26 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.use(
+  expressCspHeader({
+    directives: {
+      "default-src": ["*"],
+      "script-src": [
+        SELF,
+        INLINE,
+        "*",
+        "*..bootstrapcdn.com",
+        "*.cloudflare.com",
+        "*.jquery.com",
+      ],
+      "style-src": [SELF, INLINE, "*.fontawesome.com", "*.bootstrapcdn.com"],
+      "img-src": ["*"],
+      "font-src": ["*.fontawesome.com/", "*"],
+    },
+  })
+);
+
 app.use(passport.initialize());
 
 app.use(bodyParser.json());
