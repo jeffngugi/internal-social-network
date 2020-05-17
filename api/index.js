@@ -36,7 +36,7 @@ app.use((req, res, next) => {
 app.use(
   expressCspHeader({
     directives: {
-      "default-src": ["*"],
+      "default-src": [SELF, INLINE, "*"],
       "script-src": [
         SELF,
         INLINE,
