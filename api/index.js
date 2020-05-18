@@ -43,40 +43,6 @@ app.use("/api/v1/gifs", gif);
 app.use("/api/v1/articles", articles);
 
 // Server static assets if in production
-if (process.env.NODE_ENV === "production") {
-  app.use(
-    expressCspHeader({
-      directives: {
-        "default-src": [SELF, INLINE, "*"],
-        "script-src": [
-          SELF,
-          INLINE,
-          "*",
-          "*..bootstrapcdn.com",
-          "*.cloudflare.com",
-          "*.jquery.com",
-        ],
-        "style-src": [SELF, INLINE, "*.fontawesome.com", "*.bootstrapcdn.com"],
-        "img-src": [SELF, "*"],
-        "font-src": ["*.fontawesome.com/", "*"],
-      },
-    })
-  );
-  // Set static folder
-  // app.get("*", (req, res) => {
-  //   res.status(200).send({
-  //     message: "Almost there bro",
-  //   });
-  // });
-  // app.use(express.static("../client/build"));
-
-  // app.get("*", (req, res) => {
-  //   res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"));
-  // });
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../client/build/index.html"));
-  });
-}
 
 app.use("*", (req, res) =>
   res.status(200).send({
