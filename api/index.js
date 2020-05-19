@@ -7,7 +7,6 @@ const auth = require("./routes/auth");
 const gif = require("./routes/gif");
 const articles = require("./routes/article");
 const fileupload = require("express-fileupload");
-const { expressCspHeader, INLINE, NONE, SELF } = require("express-csp-header");
 app.use(
   fileupload({
     useTempFiles: true,
@@ -32,7 +31,6 @@ app.use((req, res, next) => {
   );
   next();
 });
-
 app.use(passport.initialize());
 
 app.use(bodyParser.json());
@@ -41,8 +39,6 @@ app.use("/api/v1/users", users);
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/gifs", gif);
 app.use("/api/v1/articles", articles);
-
-// Server static assets if in production
 
 app.use("*", (req, res) =>
   res.status(200).send({
