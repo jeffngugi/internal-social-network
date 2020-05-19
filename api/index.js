@@ -5,6 +5,7 @@ const users = require("./routes/users");
 const passport = require("passport");
 const auth = require("./routes/auth");
 const gif = require("./routes/gif");
+const comment = require("./routes/comment");
 const articles = require("./routes/article");
 const fileupload = require("express-fileupload");
 app.use(
@@ -39,6 +40,7 @@ app.use("/api/v1/users", users);
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/gifs", gif);
 app.use("/api/v1/articles", articles);
+// app.use("/api/v1/comment", comment);
 
 app.use("*", (req, res) =>
   res.status(200).send({

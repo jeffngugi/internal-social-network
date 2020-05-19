@@ -18,7 +18,7 @@
     "build-server": "babel api --out-dir dist",
     "clean": "rm -rf dist && mkdir dist",
     "build": "npm run clean && npm run build-server",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run createTables && npm run build"
   },
   "engines": {
     "node": "12.15.0",
